@@ -12,11 +12,6 @@
     "heroku-postbuild": "npm run install-frontend && npm run build",
     "dev": "cd frontend && npm start"
   },
-  "nodemonConfig": {
-    "ignore": [
-      "public"
-    ]
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
