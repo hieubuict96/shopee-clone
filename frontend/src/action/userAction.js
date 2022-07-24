@@ -185,6 +185,9 @@ export const sendInfoAction =
 export const signinAction = (user, password, setError) => async (dispatch) => {
   try {
     dispatch({ type: LOADING });
+    if (!/@/.test(user)) {
+      user = "+84" + user.slice(1);
+    }
     const response = await axios.post("/api/user/signin", { user, password });
 
     dispatch({
@@ -289,7 +292,7 @@ export const getDataAction = (setIsLoadingData) => async (dispatch) => {
 export const handleChangeProfileAction =
   (formData, setPreviewImgBuyer, setPreviewImgShop) => async (dispatch) => {
     try {
-      const response = await axiosInstance.post(
+      const response = await axiosInstance.put(
         "/api/user/profile/update",
         formData,
         {
@@ -351,7 +354,7 @@ export function sendCodeToEmailAction(
       if (!password) {
         return setError("passwordEmpty");
       }
-      const response = await axiosInstance.post(
+      const response = await axiosInstance.put(
         "/api/user/profile/update/email/send-code",
         {
           _id,
@@ -399,7 +402,7 @@ export const verifyCodeAction =
         return setError("codeEmpty");
       }
 
-      const response = await axiosInstance.post(
+      const response = await axiosInstance.put(
         "/api/user/profile/update/email/verify-code",
         { _id, oldEmail, codeOldEmail, newEmail, codeNewEmail }
       );

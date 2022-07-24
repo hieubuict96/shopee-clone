@@ -21,7 +21,9 @@ export function addToCartAction(quantityBuy, productId, setIsAddedToCart) {
         return dispatch({ type: SIGNED_OUT });
       }
 
-      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+      if (error.response.status >= 500) {
+        alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+      }
     }
   };
 }
@@ -44,7 +46,9 @@ export function getCartAction(id) {
         return dispatch({ type: SIGNED_OUT });
       }
 
-      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+      if (error.response.status >= 500) {
+        alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+      }
     }
   };
 }
@@ -64,7 +68,9 @@ export const reduceQttAction =
         return dispatch({ type: SIGNED_OUT });
       }
 
-      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+      if (error.response.status >= 500) {
+        alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+      }
     }
   };
 
@@ -83,7 +89,9 @@ export const increaseQttAction =
         return dispatch({ type: SIGNED_OUT });
       }
 
-      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+      if (error.response.status >= 500) {
+        alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+      }
     }
   };
 
@@ -99,7 +107,9 @@ export const deleteProductAction = (userId, productId) => async (dispatch) => {
       return dispatch({ type: SIGNED_OUT });
     }
 
-    alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    if (error.response.status >= 500) {
+      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    }
   }
 };
 
@@ -119,6 +129,8 @@ export const orderAction = (userId, setIsOrder) => async (dispatch) => {
       return dispatch({ type: SIGNED_OUT });
     }
 
-    alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    if (error.response.status >= 500) {
+      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    }
   }
 };

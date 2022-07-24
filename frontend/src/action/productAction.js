@@ -7,7 +7,7 @@ export const getFlashSaleAction = () => async (dispatch) => {
   try {
     const response = await axiosInstance.get("/api/products/flash-sale", {
       headers: {
-        'is-next': true,
+        "is-next": true,
       },
     });
 
@@ -22,7 +22,9 @@ export const getFlashSaleAction = () => async (dispatch) => {
       dispatch({ type: SIGNED_OUT });
     }
   } catch (error) {
-    alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    if (error.response.status >= 500) {
+      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    }
   }
 };
 
@@ -41,7 +43,9 @@ export const getAllProductsSellerAction = (userId) => async (dispatch) => {
       },
     });
   } catch (error) {
-    alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    if (error.response.status >= 500) {
+      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    }
   }
 };
 
@@ -98,18 +102,27 @@ export async function getProductAction(id, setError, setProduct) {
     if (error.response.data.error === "productNotFound") {
       return setError("productNotFound");
     }
+
+    if (error.response.status >= 500) {
+      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau!!!")
+    }
   }
 }
 
 export async function getAllProduct(setAllProducts) {
   try {
-    const response = await axios.get("/api/products/get-all-products-customer", {
-      headers: {
-        'is-next': true
+    const response = await axios.get(
+      "/api/products/get-all-products-customer",
+      {
+        headers: {
+          "is-next": true,
+        },
       }
-    });
-    setAllProducts(response.data.products)
+    );
+    setAllProducts(response.data.products);
   } catch (error) {
-    alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau")
+    if (error.response.status >= 500) {
+      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    }
   }
 }

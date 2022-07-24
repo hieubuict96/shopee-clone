@@ -29,7 +29,7 @@ export default function LoginFacebook() {
   return (
     <FacebookDiv className="facebook-div">
       <FacebookLogin
-        appId="1897188407336738"
+        appId="356231529742931"
         autoLoad={false} //nên cho tất cả google và fb về false cho tính năng autoLoad và isSignedIn
         fields="name,email,picture,id"
         callback={responseFacebook}

@@ -21,6 +21,8 @@ export const getCategoryAction = () => async (dispatch) => {
       dispatch({ type: SIGNED_OUT })
     }
   } catch (error) {
-    alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    if (error.response.status >= 500) {
+      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    }
   }
 };

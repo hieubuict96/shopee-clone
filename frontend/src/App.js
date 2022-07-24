@@ -18,6 +18,7 @@ import CartScreen from "./page/cart";
 import ProductScreen from "./page/products";
 import PrivacyPolicyScreen from './page/privacy-policy';
 import TermsOfServiceScreen from './page/terms-of-service';
+import Video from './page/video'
 
 function App() {
   const [isLoadingData, setIsLoadingData] = useState(true);
@@ -99,6 +100,7 @@ function App() {
               path="/terms-of-service"
               element={<TermsOfServiceScreen />}
             />
+            <Route path="/video" element={<Video />} />
           </Routes>
         </Router>
       )}

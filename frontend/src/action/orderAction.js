@@ -19,7 +19,9 @@ export const getOrderListAction = (sellerId, setListOrder) => async (dispatch) =
       return dispatch({ type: SIGNED_OUT });
     }
 
-    alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau")
+    if (error.response.status >= 500) {
+      alert("Đã xảy ra lỗi phía máy chủ, vui lòng thử lại sau");
+    }
 
   }
 }

@@ -11,7 +11,6 @@ const __dirWork = path.resolve();
 
 export function sendPhoneNumber(req, res) {
   const phoneNumber = req.body.phoneNumber;
-  console.log("a");
   User.findOne({ phoneNumber }).exec((error, user) => {
     if (error) return res.status(500).json({ error: "serverError" });
     if (user) return res.status(400).json({ error: "phoneNumberAlreadyUse" });
@@ -158,6 +157,7 @@ export function signup(req, res) {
 
 export function signin(req, res) {
   const { user, password } = req.body;
+  console.log(user);
   if (/@/.test(user)) {
     User.findOne({ email: user }).exec((error, user) => {
       if (error) return res.status(500).json({ error: "serverError" });
