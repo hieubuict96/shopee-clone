@@ -13,6 +13,8 @@ Lệnh này cài đặt các package ở backend.
 ### `cd frontend` và `npm i`
 2 lệnh này để chuyển sang thư mục frontend và cài đặt các package ở frontend.
 
+Trường hợp cài package ở frontend không được thì hãy thử npm i -f.
+
 ### Chạy project
 Chuyển qua thư mục của project và chạy lệnh `npm start` để khởi động server ở port 8000, chạy lệnh `npm run dev` để khởi động client ở port 3000
 
