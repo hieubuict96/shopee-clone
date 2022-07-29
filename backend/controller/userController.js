@@ -157,7 +157,6 @@ export function signup(req, res) {
 
 export function signin(req, res) {
   const { user, password } = req.body;
-  console.log(user);
   if (/@/.test(user)) {
     User.findOne({ email: user }).exec((error, user) => {
       if (error) return res.status(500).json({ error: "serverError" });
@@ -191,8 +190,7 @@ export function signin(req, res) {
       return res.status(400).json({ error: "signinFail" });
     });
   } else {
-    const phoneNumber = `+84${user.slice(1)}`;
-    User.findOne({ phoneNumber }).exec((error, user) => {
+    User.findOne({ phoneNumber: user }).exec((error, user) => {
       if (error) return res.status(500).json({ error: "serverError" });
 
       if (user) {
@@ -219,8 +217,12 @@ export function signin(req, res) {
           });
         }
 
+        console.log(11);
+
         return res.status(400).json({ error: "signinFail" });
       }
+
+      console.log(22);
 
       return res.status(400).json({ error: "signinFail" });
     });
