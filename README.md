@@ -18,7 +18,7 @@ Chuyển qua thư mục của project và chạy lệnh `npm start` để khởi
 
 ** Lưu ý: Có một số tính năng như gửi tin nhắn đến điện thoại để đăng ký, đăng nhập bằng Google, Facebook do môi trường local bị giới hạn tài khoản người dùng nên chỉ có thể sử dụng tài khoản đã đăng ký với nhà cung cấp.
 
-đăng nhập bằng tài khoản được tạo sẵn (đây cũng là tài khoản cho cả khách hàng và nhà bán hàng)
+đăng nhập bằng tài khoản được tạo sẵn (đây cũng là tài khoản cho cả khách hàng và nhà bán hàng):
 
 user: 0383207498
 
